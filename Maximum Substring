@@ -1,0 +1,31 @@
+// Program for finding maximum substring with non repeating characters
+
+import java.util.*;
+
+public class MaxSubstring{
+
+	public static void main(String args[]){
+	
+		
+		String str = new String("abcabbb");
+		int max = 0;
+		int lindex = 0;
+		Set<Character> set = new HashSet<Character>();
+		for(char c : str.toCharArray()){
+		
+			if(set.contains(c)){
+				System.out.println(set);
+				max = Math.max(max,set.size());
+				while(set.contains(c)){
+				
+					set.remove(str.charAt(lindex++));
+				}
+				
+			}
+			
+			set.add(c);
+		}
+		
+		System.out.println(Math.max(max,set.size()));
+	}
+}
