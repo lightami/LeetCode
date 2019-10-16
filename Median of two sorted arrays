@@ -1,0 +1,35 @@
+// Program for finding the mean of two sorted arrays
+
+import java.util.*;
+
+public class Median{
+
+	public static void main(String args[]){
+	
+		int[] a = {2,3,4};
+		int[] b = {3,3,8};
+		
+		int m = a.length;
+		int n = b.length;
+		int p1 = 0, p2 = 0;
+		int[] arr = new int[6];
+		int pos = 0;
+		while(p1 < m || p2 < n){
+		
+			if(p1 < m && p2 < n){
+			
+				if(a[p1] < b[p2])	arr[pos++] = a[p1++];
+				else	arr[pos++] = b[p2++]; 
+			}
+			else if( p1 < m && p2 >= n){
+			
+				arr[pos++] = a[p1++];
+			}
+			else	arr[pos++] = b[p2++];
+		}
+		
+		int t = (m+n)/2;
+		if(t%2 == 0)	 System.out.println((arr[t]+arr[t+1])/2);
+		else	System.out.println(arr[t]);
+	}
+}
